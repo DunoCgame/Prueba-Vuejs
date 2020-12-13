@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Mypractica1</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
+<style>
+body{
+	background:gray;
+}
+
+.header{
+	background:white;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	text-align:center;
+	padding:10px;
+
+}
+
+#Menu{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+
+#Menu>li{
+	padding:20px;
+	list-style:none;
+}
+#Menu>li>a{
+text-decoration:none;
+font-size:20px;
+
+}
+#Menu>li>.active{
+color:green
+}
+.main{
+	background:white;
+	padding:10px;
+
+}
+
+.footer{
+background:white;
+	padding:10px;
+	text-align:center;
+
+}
+</style>
+</head>
+	<body>
+		<header class="header" id="header">
+					<div id="title">
+						<h1>{{ message }}</h1>
+					</div>
+					<nav class="Navbar">
+							<ul id="Menu">
+							<li v-for="items in ListItems"><a>{{items.item}}</a></li>
+							</ul>
+					
+					</nav>
+		</header>
+		<main class="main" >
+			<section class="content" id="Texto">
+			
+				<p v-text="Text">	</p>
+				<p v-text="Text">	</p>
+				<p v-text="Text">	</p>
+			
+			</section>
+
+		</main>
+		<footer class="footer" id="footerContet">
+			<p>{{info}}</p>
+		</footer>
+	</body>
+
+<script>
+var Title = new Vue({
+  el: '#title',
+  data: {
+    message: 'Vue Mp1'
+  }
+});
+
+const ItmeMenu = new Vue({
+el:"#Menu",
+	data:{
+		ListItems:[
+			{item:"Home"},
+			{item:"About"},
+			{item:"Contact"}
+		]
+	}
+
+
+})
+
+const Content = new Vue({
+el:"#Texto",
+	data:{
+	Text:"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+	
+	}
+
+
+})
+
+var footerInfo = new Vue({
+el:"#footerContet",
+data:{
+info:"Web vue footer"
+
+}
+
+
+})
+
+</script>
+</html>
